@@ -1,0 +1,5 @@
+Flask>=2.0
+Flask-Cors>=3.0
+Flask-Limiter>=2.0
+RPi.GPIO; platform_system=='Linux' or platform_system=='Linux'
+

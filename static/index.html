@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Garage Door</title>
+  <style>
+    body { font-family: Arial, sans-serif; display:flex; height:100vh; align-items:center; justify-content:center; background:#f6f8fa; }
+    .card { background:#fff; padding:2rem; border-radius:8px; box-shadow:0 4px 14px rgba(0,0,0,0.08); text-align:center; }
+    button { padding:1rem 1.5rem; font-size:1.2rem; border:none; border-radius:6px; background:#007bff; color:white; cursor:pointer; }
+    button:disabled { background: #7aa7ff; cursor:not-allowed }
+    .status { margin-top:1rem; color:#333 }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Garage Door</h1>
+    <p><button id="openBtn">Open Garage</button></p>
+    <div class="status" id="status">Status: idle</div>
+    <p style="margin-top:1rem;font-size:0.9rem;color:#666">Token is required. You will be prompted to enter it when clicking the button.</p>
+  </div>
+
+  <script>
+    const btn = document.getElementById('openBtn');
+    const status = document.getElementById('status');
+
+    async function trigger() {
+      const token = prompt('Enter token (server-side token required):');
+      if (!token) return;
+      btn.disabled = true;
+      status.textContent = 'Status: triggering...';
+      try {
+        const resp = await fetch(`/trigger?token=${encodeURIComponent(token)}`, { method: 'POST' });
+        const data = await resp.json();
+        if (resp.ok) {
+          status.textContent = `Status: success at ${data.timestamp}`;
+        } else {
+          status.textContent = `Error: ${data.error || JSON.stringify(data)}`;
+        }
+      } catch (err) {
+        status.textContent = 'Error: ' + err;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    btn.addEventListener('click', trigger);
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+[Unit]
+Description=Garage Door Opener Flask App
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/garage
+ExecStart=/home/pi/garage/.venv/bin/python /home/pi/garage/app.py
+Restart=on-failure
+EnvironmentFile=/etc/default/garage-door
+
+[Install]
+WantedBy=multi-user.target
