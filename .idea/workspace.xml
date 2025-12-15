@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfefa899-3a4f-45db-9cab-554ae10fb540" name="Changes" comment="initial commit: add Flask app for garage door control with GPIO integration">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/garage-door.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_local.py" afterDir="false" />
+    <list default="true" id="dfefa899-3a4f-45db-9cab-554ae10fb540" name="Changes" comment="add Flask app structure with GPIO integration and logging setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SETUP.md" beforeDir="false" afterPath="$PROJECT_DIR$/SETUP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/garage-door.service" beforeDir="false" afterPath="$PROJECT_DIR$/garage-door.service" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install_pi.sh" beforeDir="false" afterPath="$PROJECT_DIR$/install_pi.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765754267269</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add Flask app structure with GPIO integration and logging setup">
+      <option name="closed" value="true" />
+      <created>1765834395188</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765834395189</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -129,7 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit: add Flask app for garage door control with GPIO integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit: add Flask app for garage door control with GPIO integration" />
+    <MESSAGE value="add Flask app structure with GPIO integration and logging setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Flask app structure with GPIO integration and logging setup" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

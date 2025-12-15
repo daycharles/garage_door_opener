@@ -5,7 +5,7 @@ set -euo pipefail
 # This script installs the garage-door app on a Raspberry Pi.
 # It expects the project to be copied to the provided directory (e.g. /home/pi/garage).
 
-TARGET_DIR=${1:-/home/pi/garage}
+TARGET_DIR=${1:-/home/dtfitness/Desktop/PythonProject}
 ENV_FILE=${2:-${TARGET_DIR}/garage-door.env}
 SERVICE_FILE=${3:-${TARGET_DIR}/garage-door.service}
 

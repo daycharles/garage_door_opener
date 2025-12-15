@@ -86,7 +86,7 @@ From `/home/dtfitness/Desktop/PythonProject` (or your chosen directory):
 ```bash
 # Clone repository (replace <repo-url> if using git)
 cd /home/dtfitness/Desktop/PythonProject
-git clone <your-repo-url> garage
+git clone https://github.com/daycharles/garage_door_opener.git garage
 cd garage
 
 # Create virtualenv and activate
@@ -96,7 +96,7 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-If you don't use `git`, copy the project folder to `/home/pi/garage` using `scp` or another network‑transfer method.
+If you don't use `git`, copy the project folder to `/home/dtfitness/Desktop/PythonProject` using `scp` or another network‑transfer method.
 
 Network transfer examples (recommended):
 
@@ -104,7 +104,7 @@ Network transfer examples (recommended):
 
 ```bash
 cd /home/pi
-git clone <your-repo-url> garage
+git clone https://github.com/daycharles/garage_door_opener.git garage
 cd garage
 ```
 
@@ -115,7 +115,7 @@ From a Windows PowerShell with OpenSSH installed (or a Linux/macOS terminal):
 ```powershell
 # Windows PowerShell example
 # Adjust the source path and <pi-ip>
-scp -r C:\Users\<you>\Desktop\garage\garage_door_opener\ pi@<pi-ip>:/home/pi/garage
+scp -r C:\Users\<dtfitness>\Desktop\PythonProject\garage_door_opener\ pi@<pi-ip>:/home/pi/garage
 ```
 
 ```bash
