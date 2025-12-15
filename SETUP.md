@@ -201,9 +201,9 @@ After=network.target
 
 [Service]
 Type=simple
-User=pi
-WorkingDirectory=/home/pi/garage
-ExecStart=/home/pi/garage/.venv/bin/python /home/pi/garage/app.py
+User=dtfitness
+WorkingDirectory=/home/dtfitness/Desktop/PythonProject
+ExecStart=/home/dtfitness/Desktop/PythonProject/.venv/bin/python /home/dtfitness/Desktop/PythonProject/app.py
 Restart=on-failure
 EnvironmentFile=/etc/default/garage-door
 
@@ -211,7 +211,16 @@ EnvironmentFile=/etc/default/garage-door
 WantedBy=multi-user.target
 ```
 
-Enable and start the service:
+Alternatively, keep the unit file in the project repo and have systemd use it directly (editable in your repo):
+
+```bash
+# from your project directory on the Pi
+sudo systemctl link /home/dtfitness/Desktop/PythonProject/garage-door.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now garage-door.service
+```
+
+Enable and start the service (if you copied the unit to /etc/systemd/system):
 
 ```bash
 sudo systemctl daemon-reload
@@ -221,7 +230,7 @@ sudo journalctl -u garage-door -f
 ```
 
 Notes:
-- If you must access GPIO and the service fails with permission errors, try running as `root` (not recommended) or ensure the `pi` user has GPIO permissions on your distribution.
+- If you must access GPIO and the service fails with permission errors, ensure the configured `User=` in the service has access to GPIO (usually the default pi or the locally used user `dtfitness`).
 
 
 ## Testing endpoints (examples)

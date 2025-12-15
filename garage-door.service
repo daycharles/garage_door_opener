@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-User=pi
+User=dtfitness
 WorkingDirectory=/home/dtfitness/Desktop/PythonProject
 ExecStart=/home/dtfitness/Desktop/PythonProject/.venv/bin/python /home/dtfitness/Desktop/PythonProject/app.py
 Restart=on-failure
