@@ -1,7 +1,7 @@
 import os
 
 # Authentication token (override with environment variable GARAGE_TOKEN)
-TOKEN = os.environ.get('GARAGE_TOKEN', 'changeme-token')
+TOKEN = os.environ.get('GARAGE_TOKEN', 'gusbus')
 
 # GPIO pin (BCM mode)
 RELAY_PIN = int(os.environ.get('RELAY_PIN', '17'))
@@ -15,3 +15,6 @@ LOG_FILE = os.environ.get('LOG_FILE', 'logs/garage.log')
 # Rate limit for trigger endpoint (Flask-Limiter syntax)
 RATE_LIMIT = os.environ.get('RATE_LIMIT', '1 per 3 seconds')
 
+# Optional storage URI for Flask-Limiter to avoid in-memory storage warning
+# e.g., 'redis://localhost:6379'
+RATELIMIT_STORAGE_URL = os.environ.get('RATELIMIT_STORAGE_URL')

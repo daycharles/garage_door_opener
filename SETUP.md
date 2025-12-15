@@ -68,7 +68,7 @@ This configuration closes COM ↔ NO while the relay is triggered, simulating a 
 
 ```bash
 # Example
-ssh pi@<pi-ip>
+ssh dtfitness@192.168.0.34
 ```
 
 4. Update the Pi:
@@ -81,11 +81,11 @@ sudo apt upgrade -y
 
 ## Software install on the Pi (step-by-step)
 
-From `/home/pi` (or your chosen directory):
+From `/home/dtfitness/Desktop/PythonProject` (or your chosen directory):
 
 ```bash
 # Clone repository (replace <repo-url> if using git)
-cd /home/pi
+cd /home/dtfitness/Desktop/PythonProject
 git clone <your-repo-url> garage
 cd garage
 
@@ -96,32 +96,49 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-If you don't use git, copy the project folder to `/home/pi/garage` using SCP or by copying the SD card.
+If you don't use `git`, copy the project folder to `/home/pi/garage` using `scp` or another network‑transfer method.
 
-If you are transferring via USB stick, copy the entire project folder onto the USB drive on your workstation. Then on the Pi:
+Network transfer examples (recommended):
+
+1) Using `git` on the Pi (preferred if the repo is hosted remotely):
 
 ```bash
-# Mount the USB drive (example; adapter and device may differ)
-sudo mount /dev/sda1 /mnt
-cp -r /mnt/garage /home/pi/garage
-sudo umount /mnt
+cd /home/pi
+git clone <your-repo-url> garage
+cd garage
 ```
 
-There is an automated helper script included: `install_pi.sh`. After copying the project to the Pi, run:
+2) Using `scp` from your workstation to the Pi:
+
+From a Windows PowerShell with OpenSSH installed (or a Linux/macOS terminal):
+
+```powershell
+# Windows PowerShell example
+# Adjust the source path and <pi-ip>
+scp -r C:\Users\<you>\Desktop\garage\garage_door_opener\ pi@<pi-ip>:/home/pi/garage
+```
+
+```bash
+# Linux/macOS example
+scp -r ~/Desktop/garage/garage_door_opener pi@<pi-ip>:/home/pi/garage
+```
+
+After the project is present on the Pi, you can use the included installer script to automate setup. For example:
 
 ```bash
 # run from the Pi (make sure file is executable)
 cd /home/pi/garage
+chmod +x install_pi.sh
 sudo bash install_pi.sh /home/pi/garage /home/pi/garage/garage-door.env
 ```
 
-The script will:
+The installer script will:
 
-- install Python venv and Python packages
+- create a Python virtual environment and install dependencies from `requirements.txt`
 - copy the provided `garage-door.env` into `/etc/default/garage-door` (if present)
 - install the `garage-door.service` systemd unit, enable and start it
 
-If you prefer manual steps, follow the previous commands to create the venv and install dependencies.
+If you prefer manual steps, follow the earlier commands to create the venv and install dependencies.
 
 
 ## Configuration
